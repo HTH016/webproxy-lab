@@ -187,11 +187,6 @@ void clienterror(int fd, char* cause, char* errnum, char* shortmsg,
 }
 
 
-
-
-
-
-
 int main(int argc, char **argv) {
   int listenfd, connfd;
   char hostname[MAXLINE], port[MAXLINE];

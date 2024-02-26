@@ -10,10 +10,10 @@ LDFLAGS = -lpthread
 
 all: echo
 
-csapp.o: csapp.c csapp.h
-	$(CC) $(CFLAGS) -c csapp.c
+csapp.o: ../csapp.c ../csapp.h
+	$(CC) $(CFLAGS) -c ../csapp.c
 
-echoclient.o: echoclient.c csapp.h
+echoclient.o: echoclient.c ../csapp.h
 	$(CC) $(CFLAGS) -c echoclient.c
 
 # Creates a tarball in ../proxylab-handin.tar that you can then

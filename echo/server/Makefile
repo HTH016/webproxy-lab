@@ -17,7 +17,7 @@ echoserveri.o: echoserveri.c csapp.h
 	$(CC) $(CFLAGS) -c echoserveri.c
 
 echo: echoclient.o echoserveri.o csapp.o
-	$(CC) $(CFLAGS) echoclient.o echoserveri.o csapp.o -o echo $(LDFLAGS)
+	$(CC) $(CFLAGS) echoserveri.o csapp.o -o echo $(LDFLAGS)
 
 # Creates a tarball in ../proxylab-handin.tar that you can then
 # hand in. DO NOT MODIFY THIS!

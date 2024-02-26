@@ -128,7 +128,7 @@ void serve_static(int fd, char* filename, int filesize)
     srcp = Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0);
     Close(srcfd);
     Rio_writen(fd, srcp, filesize);
-    Mmunmap(srcp, filesize);
+    Munmap(srcp, filesize);
 
 }
 void get_filetype(char* filename, char* filetype)
@@ -177,11 +177,11 @@ void clienterror(int fd, char* cause, char* errnum, char* shortmsg,
     sprintf(body, "%s<hr><em>The Tiny Web server</em>\r\n", body);
 
     /* Print the HTTP response */
-    sprint(buf, "HTTP/1.0 %s %s\r\n", errnum, shortmsg);
+    sprintf(buf, "HTTP/1.0 %s %s\r\n", errnum, shortmsg);
     Rio_writen(fd, buf, strlen(buf));
-    sprint(buf, "Content-type: text/html\r\n");
+    sprintf(buf, "Content-type: text/html\r\n");
     Rio_writen(fd, buf, strlen(buf));
-    sprint(buf, "Content-length: %d\r\n\r\n", (int)strlen(body));
+    sprintf(buf, "Content-length: %d\r\n\r\n", (int)strlen(body));
     Rio_writen(fd, buf, strlen(buf));
     Rio_writen(fd, buf, strlen(body));
 }

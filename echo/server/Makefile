@@ -10,17 +10,17 @@ LDFLAGS = -lpthread
 
 all: echo
 
-csapp.o: csapp.c csapp.h
-	$(CC) $(CFLAGS) -c csapp.c
+csapp.o: ../csapp.c ../csapp.h
+	$(CC) $(CFLAGS) -c ../csapp.c
 
-echoserveri.o: echoserveri.c csapp.h
+echoserveri.o: echoserveri.c ../csapp.h
 	$(CC) $(CFLAGS) -c echoserveri.c
 
-echo.o: echo.c csapp.h
+echo.o: echo.c ../csapp.h
 	$(CC) $(CFLAGS) -c echo.c
 
 echo: echo.o echoserveri.o csapp.o
-	$(CC) $(CFLAGS) echo.o echoserveri.o csapp.o -o echo $(LDFLAGS)
+	$(CC) $(CFLAGS) echo.o echoserveri.o csapp.o -o echoserver $(LDFLAGS)
 
 # Creates a tarball in ../proxylab-handin.tar that you can then
 # hand in. DO NOT MODIFY THIS!

@@ -16,6 +16,9 @@ csapp.o: ../csapp.c ../csapp.h
 echoclient.o: echoclient.c ../csapp.h
 	$(CC) $(CFLAGS) -c echoclient.c
 
+echo: echoclient.o csapp.o
+	$(CC) $(CFLAGS) echoclient.o csapp.o -o echoclient $(LDFLAGS)
+
 # Creates a tarball in ../proxylab-handin.tar that you can then
 # hand in. DO NOT MODIFY THIS!
 #handin:
